@@ -36,5 +36,8 @@ public class AccountManager {
         System.out.print("Account Created Successfully." +
              "\nAccount Number: " + accountNumber +
              "\nAccount Name: " + firstName + " " + lastName);
+
+        input.close();
     }
+
 }

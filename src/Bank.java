@@ -2,37 +2,73 @@ import java.util.Scanner;
 
 public class Bank {
 
-    public void commandList() {
-        String[] commands = {
-            "1 - createAccount",
-            "2 - none",
-            "3 - none"
+    public void modeList() {
+        String[] modes = {
+            "0 - Save & Exit Program",
+            "1 - AccountManager",
+            "2 - None"
         };
 
-        System.out.println("Supported Commands:");
-        for (String command : commands) {
-            System.out.println(command);
+        System.out.println("\nSupported Commands:");
+        for (String mode : modes) {
+            System.out.println(mode);
         }
-        commandSelector();
+        modeSelector();
     }
 
-    public void commandSelector() {
+    public void commandsListAccountManager() {
+        String[] modes = {
+            "0 - Save & Exit Program",
+            "1 - createAccount",
+            "2 - None"
+        };
+
+        System.out.println("\nSupported Commands:");
+        for (String mode : modes) {
+            System.out.println(mode);
+        }
+        commandsAccountManagerSelector();
+    }
+
+    public void modeSelector() {
         Scanner input = new Scanner(System.in);
-        AccountManager accountManager = new AccountManager();
-        System.out.print("Select a command (1, 2...): ");
+        System.out.print("\nSelect a mode (0, 1, 2...): ");
         int command = input.nextInt();
 
         switch (command) {
+            case 0:
+                break;
+            case 1:
+                commandsListAccountManager();
+                break;
+            case 2:
+                break;
+            default:
+                System.out.println("Invalid Command.");
+                modeSelector();
+        }
+
+        input.close();
+    }
+
+    public void commandsAccountManagerSelector() {
+        Scanner input = new Scanner(System.in);
+        AccountManager accountManager = new AccountManager();
+        System.out.print("\nSelect a command (0, 1, 2...): ");
+        int command = input.nextInt();
+
+        switch (command) {
+            case 0:
+                modeList();
+                break;
             case 1:
                 accountManager.createAccount();
                 break;
             case 2:
                 break;
-            case 3:
-                break;
             default:
                 System.out.println("Invalid Command.");
-                commandSelector();
+                commandsListAccountManager();
         }
 
         input.close();
@@ -40,8 +76,9 @@ public class Bank {
 
     public void run() {
         System.out.println("Welcome to the Banking System!");
-        commandList();
+        modeList();
     }
+
     public static void main(String[] args) {
         new Bank().run();
     }
