@@ -1,12 +1,8 @@
-import java.util.Scanner;
-
 public class Transaction {
 
     private double transactionAmount;
     private String accountNumberPayed;
     private String accountNumberPaying;
-
-    Scanner sc = new Scanner(System.in);
 
     public Transaction(double transactionAmount, String accountNumberPayed, String accountNumberPaying) {
         this.transactionAmount = transactionAmount;
@@ -14,21 +10,39 @@ public class Transaction {
         this.accountNumberPaying = accountNumberPaying; 
     }
 
-    public String accountNumberPayed() {
-        System.out.print("Who would you like to pay (Account Number)? ");
-        accountNumberPayed = sc.next();
+    public String getAccountNumberPayed() {
         return accountNumberPayed;
     }
 
-    public String accountNumberPaying() {
-        System.out.print("Your Account Number: ");
-        accountNumberPaying = sc.next();
+    public String getAccountNumberPaying() {
         return accountNumberPaying;
     }
 
-    public double transactionAmount() {
-        System.out.print("How much would you like to send (Format 00.00)? ");
-        transactionAmount = sc.nextDouble();
+    public double getTransactionAmount() {
         return transactionAmount;
+    }
+
+    public void setAccountNumberPayed(String accountNumberPayed) {
+        this.accountNumberPayed = accountNumberPayed;
+    }
+
+    public void setAccountNumberPaying(String accountNumberPaying) {
+        this.accountNumberPaying = accountNumberPaying;
+    }
+
+    public void setTransactionAmount(double transactionAmount) {
+        if (transactionAmount > 0) {
+            this.transactionAmount = transactionAmount;
+        } else {
+            System.out.println("Invalid transaction amount.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction Details:\n" +
+               "From Account: " + accountNumberPaying + "\n" +
+               "To Account: " + accountNumberPayed + "\n" +
+               "Amount: " + transactionAmount;
     }
 }

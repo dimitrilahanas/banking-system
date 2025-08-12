@@ -30,7 +30,7 @@ public class Account {
 
     public void deposit(double amount) {
         if (amount > 0) {
-            amount += balance;
+            balance += amount;
         } else {
             System.out.println("Invalid Amount.");
         }
@@ -38,7 +38,7 @@ public class Account {
 
     public void withdraw(double amount) {
         if (amount > 0) {
-            amount -= balance;
+            balance -= amount;
         } else {
             System.out.println("Invalid Amount.");
         }
@@ -46,7 +46,7 @@ public class Account {
 
     public void setBalance(double amount) {
         if (amount > 0) {
-            amount = balance;
+            balance = amount;
         } else {
             System.out.println("Invalid Amount.");
         }
