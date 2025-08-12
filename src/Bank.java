@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class Bank {
 
+    Scanner input = new Scanner(System.in);
+
     public void modeList() {
         String[] modes = {
             "0 - Save & Exit Program",
@@ -18,7 +20,7 @@ public class Bank {
 
     public void commandsListAccountManager() {
         String[] modes = {
-            "0 - Save & Exit Program",
+            "0 - Go Back",
             "1 - createAccount",
             "2 - None"
         };
@@ -31,13 +33,13 @@ public class Bank {
     }
 
     public void modeSelector() {
-        Scanner input = new Scanner(System.in);
         System.out.print("\nSelect a mode (0, 1, 2...): ");
         int command = input.nextInt();
 
         switch (command) {
             case 0:
-                break;
+                System.out.print("Exiting system...");
+                return;
             case 1:
                 commandsListAccountManager();
                 break;
@@ -45,14 +47,10 @@ public class Bank {
                 break;
             default:
                 System.out.println("Invalid Command.");
-                modeSelector();
         }
-
-        input.close();
     }
 
     public void commandsAccountManagerSelector() {
-        Scanner input = new Scanner(System.in);
         AccountManager accountManager = new AccountManager();
         System.out.print("\nSelect a command (0, 1, 2...): ");
         int command = input.nextInt();
@@ -68,10 +66,9 @@ public class Bank {
                 break;
             default:
                 System.out.println("Invalid Command.");
-                commandsListAccountManager();
+            
         }
 
-        input.close();
     }
 
     public void run() {

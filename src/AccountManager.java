@@ -33,7 +33,7 @@ public class AccountManager {
         Account account = new Account(accountNumber, firstName, lastName, balance);
         accounts.add(account);
 
-        System.out.print("Account Created Successfully." +
+        System.out.print("\nAccount Created Successfully." +
              "\nAccount Number: " + accountNumber +
              "\nAccount Name: " + firstName + " " + lastName);
 
