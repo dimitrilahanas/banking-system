@@ -56,7 +56,8 @@ public class Account {
     public String toString() {
         return "Account Number: " + accountNumber +
              "\nAccount Holder: " + firstName + " " + lastName +
-             "\nBalance: " + balance;
+             "\nBalance: $" + String.format("%.2f", balance);
+
     }
 
 }
